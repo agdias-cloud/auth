@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box; /* Ensures padding and margin are included in width/height */
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  min-height: 100%; /* Full height for body and html */
+  margin: 0; /* Remove default margin */
+  font-family: 'Roboto', sans-serif; /* Use Roboto font */
+
+}
+
+body, html {
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+ 
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  height: 60px;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 28px; /* Logo font size */
+  font-weight: 700; /* Bold weight for logo */
+  color: goldenrod;
+}
+
+.menubar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex; /* Makes the menu horizontal */
+  margin: 0; /* Removes default margin */
+}
+
+.menubar li {
+  margin-left: 20px; /* Space between menu items */
+}
+
+.menubar a {
+  text-decoration: none;
+
+  font-weight: 400; /* Regular weight for menu items */
+  font-size: 16px; /* Font size for menu items */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.menubar a:hover {
+  color: #007BFF; /* Highlight color on hover */
+}
+
+.menubar li a {
+  color: #d2d2d2;
+}
+
+.menubar li:last-child a {
+  color: #d9534f; /* Different color for Sign Out link */
+}
+
+.menubar li:last-child a:hover {
+  color: #c9302c; /* Darker red on hover */
+}
+
+.content-area {
+ 
+   flex: 1;
+
+
+  border: thin dashed black;
+  
+  overflow: auto; /* Allow scrolling if content overflows */
+  padding: 20px;
+}
+
+.app {
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  padding: 20px;
+  height: 100vh;
+}
+
+.content-area {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: thin dashed blue;
+  transition: background-color 0.5s ease, border 0.5s ease;
+}
+
+/* Highlight the content temporarily */
+.content-area.highlight {
+  background-color: rgba(255, 255, 0, 0.3);  /* Yellow highlight */
+  border: 2px solid #ffcc00;  /* Yellow border */
+}
+
+/* App.css */
+.app {
+  display: flex;
+  flex-direction: column;  /* Stack header and content vertically */
+  height: 100vh;  /* Full viewport height */
+}
+
+.content {
+  flex-grow: 1;  /* Take up remaining space */
+  overflow: auto;  /* Allow scrolling if content overflows */
+}
