@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         script {
-          def yamlContent = readFile('agents/buildah')
+          def yamlContent = readFile('agents/buildah.yaml')
           echo "YAML content: ${yamlContent}"
         }
       }
