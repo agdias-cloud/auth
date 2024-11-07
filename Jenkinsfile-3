@@ -6,14 +6,16 @@ pipeline {
     }
     stages {
         stage('npm install') {
+
             agent {
                 kubernetes {
                     // Load Kubernetes pod YAML from an external file in the repository
                   label 'npm-pod'
-                  yaml readFile(file: "agents/buildah-pod.yaml")
+                  yamlFile 'agents/buildah-pod.yaml'
                 }
             }
             steps {
+
                 container('node') {
                     sh 'npm install --prefix ./app/'
                 }
