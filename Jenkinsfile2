@@ -1,13 +1,13 @@
 pipeline {
   agent none
   environment {
-    buildah = readFile file: 'agents/buildah.yaml'
+    buildah = 'agents/buildah.yaml'
   }
   stages {
     stage('Registry login') {
       agent {
         kubernetes {
-          yaml readFile ${buildah}
+          yaml readFile file: ${buildah}
         }
       }
       steps {
