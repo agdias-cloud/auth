@@ -5,7 +5,7 @@ pipeline {
         BUILDAH_IMAGE = 'buildah/buildah'
     }
     stages {
-        stage('npm install') {
+        stage('Install Packages') {
 
             agent {
                 kubernetes {
@@ -18,6 +18,19 @@ pipeline {
 
                 container('node') {
                     sh 'npm install --prefix ./app/'
+                }
+            }
+        }
+        stage('Build') {
+            agent {
+                kubernetes {
+                    label 'npm-build'
+                    yamlFile './agents/buildah-pod.yaml'
+                }
+            }
+            steps {
+                container ('node') {
+                    sh 'npm build --prefix ./app/'
                 }
             }
         }
