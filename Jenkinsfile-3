@@ -1,0 +1,24 @@
+pipeline {
+    agent none
+    environment {
+        NODE_IMAGE = 'node:lts-slim'
+        BUILDAH_IMAGE = 'buildah/buildah'
+    }
+    stages {
+        stage('npm install') {
+            agent {
+                kubernetes {
+                    // Load Kubernetes pod YAML from an external file in the repository
+                  label 'npm-pod'
+                  yaml readFile('agents/node-pod.yaml')
+                }
+            }
+            steps {
+                container('node') {
+                    sh 'npm install --prefix ./app/'
+                }
+            }
+        }
+       
+    }
+}
