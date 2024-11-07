@@ -11,7 +11,7 @@ pipeline {
         stage('Run buildah') {
             agent {
                 kubernetes {
-                    label 'buildah-agent'
+                    
                     yamlFile 'agents/buildah.yaml'
                 }
             }
