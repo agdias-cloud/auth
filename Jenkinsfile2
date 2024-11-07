@@ -7,7 +7,9 @@ pipeline {
         spec:
           containers:
           - name: buidah
-            image: buidah/buildah
+            image: 
+            buildah/buildah
+            imagePullPolicy: IfNotExists
             command:
             - cat
         '''
