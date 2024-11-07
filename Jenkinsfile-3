@@ -19,6 +19,7 @@ pipeline {
                 container('node') {
                     sh 'npm --prefix ./app/  install'
                     sh 'npm --prefix ./app/  run build'
+                    sh 'ls -l ./app/dist'
                 }
             }
             
