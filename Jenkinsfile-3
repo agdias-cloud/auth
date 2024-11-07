@@ -11,7 +11,7 @@ pipeline {
                 kubernetes {
                     // Load Kubernetes pod YAML from an external file in the repository
                   label 'npm-pod'
-                  yamlFile 'agents/buildah-pod.yaml'
+                  yamlFile: readFile 'agent/buildah-pod.yaml'
                 }
             }
             steps {
