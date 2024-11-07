@@ -28,7 +28,7 @@ pipeline {
             agent {
                 kubernetes {
                     label 'buildah-pod'
-                    yamlFile './agents/builda-pods.yaml'
+                    yamlFile './agents/buildah-pods.yaml'
                 }
             }
             steps {
