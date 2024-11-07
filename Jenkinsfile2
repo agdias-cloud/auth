@@ -4,16 +4,7 @@ pipeline {
     stage('Registry login') {
       agent {
         kubernetes {
-          yaml '''
-            apiVersion: v1
-            kind: Pod
-            spec:
-              containers:
-              - name: buildah
-                image: buildah/buildah
-                command: ['cat']
-                tty: true
-          '''
+          yaml readFile('agents/buildah.yaml')
         }
       }
         steps {
