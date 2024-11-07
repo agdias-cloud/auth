@@ -1,24 +1,22 @@
 pipeline {
-   agent {
-     kubernetes {
-       yaml '''
-         apiVersion: v1
-         kind: Pod
-         spec:
-           containers:
-           - name: buildah
-             image:  buildah/buildah
-             
-             command:
-             - cat
-             tty: true
-         '''
-     }
-  }
+  agent none
 
   stages {
-    stage ('Registry login') {
-     
+    stage('Registry login') {
+      agent {
+        kubernetes {
+          yaml '''
+            apiVersion: v1
+            kind:Pod
+            spec:
+              containers:
+              - name: buildah
+                image: buildah/buildah
+                command: ['cat']
+                tty: true
+          '''
+        }
+      }
         steps {
           container('buildah') {
             sh 'buildah login --help'
