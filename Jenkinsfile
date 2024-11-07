@@ -2,6 +2,7 @@ pipeline {
     agent none
     stages {
         stage('Checkout') {
+          agent none
           steps {
             git credentialsId: 'github-pat',
             url: 'https://github.com/agdias-cloud/auth.git'
