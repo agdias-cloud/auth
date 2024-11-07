@@ -1,13 +1,12 @@
 pipeline {
   agent none
-
   stages {
     stage('Registry login') {
       agent {
         kubernetes {
           yaml '''
             apiVersion: v1
-            kind:Pod
+            kind: Pod
             spec:
               containers:
               - name: buildah
