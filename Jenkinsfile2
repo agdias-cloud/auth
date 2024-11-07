@@ -12,7 +12,7 @@ pipeline {
             apiVersion: v1
             kind: Pod
             spec:
-              containesr:
+              containers:
               - name: buildah
                 image: buildah/buildah
                 command:
