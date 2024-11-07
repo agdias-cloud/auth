@@ -9,7 +9,7 @@ pipeline {
           - name: buidah
             image: 
             buildah/buildah
-            imagePullPolicy: IfNotExists
+            
             command:
             - cat
             tty: true
