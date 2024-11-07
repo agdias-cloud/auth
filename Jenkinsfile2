@@ -12,6 +12,7 @@ pipeline {
             imagePullPolicy: IfNotExists
             command:
             - cat
+            tty: true
         '''
     }
   }
