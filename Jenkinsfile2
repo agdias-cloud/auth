@@ -20,7 +20,7 @@ pipeline {
      
         steps {
           container('buildah') {
-            sh buildah login --help
+            sh 'buildah login --help'
           }
         }
       }
