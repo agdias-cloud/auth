@@ -17,8 +17,8 @@ pipeline {
             steps {
 
                 container('node') {
-                    sh 'npm install --prefix ./app/'
-                    sh 'npm run build --prefix ./app/'
+                    sh 'npm --prefix ./app/  install'
+                    sh 'npm --prefix ./app/  run build 
                 }
             }
             
