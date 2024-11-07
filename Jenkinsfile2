@@ -23,7 +23,7 @@ pipeline {
       }
       steps {
        container ('node') {
-        sh 'npm install'
+        sh 'npm install --prefix ./app/'
        }
       }
     }
