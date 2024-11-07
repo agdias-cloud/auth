@@ -18,22 +18,12 @@ pipeline {
 
                 container('node') {
                     sh 'npm install --prefix ./app/'
+                    sh 'npm run build --prefix ./app/'
                 }
             }
+            
         }
-        stage('Build') {
-            agent {
-                kubernetes {
-                    label 'npm-build'
-                    yamlFile './agents/buildah-pod.yaml'
-                }
-            }
-            steps {
-                container ('node') {
-                    sh 'npm run build  --prefix ./app/'
-                }
-            }
-        }
+        
        
     }
 }
