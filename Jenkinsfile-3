@@ -9,9 +9,9 @@ pipeline {
 
             agent {
                 kubernetes {
-                    // Load Kubernetes pod YAML from an external file in the repository
+                  customWorkspace 'agent/'
                   label 'npm-pod'
-                  yamlFile readFile 'agent/buildah-pod.yaml'
+                  yamlFile 'node-pod.yaml'
                 }
             }
             steps {
