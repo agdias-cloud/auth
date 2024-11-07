@@ -9,9 +9,9 @@ pipeline {
 
             agent {
                 kubernetes {
-                  customWorkspace './agent/'
+                  
                   label 'npm-pod'
-                  yamlFile 'node-pod.yaml'
+                  yamlFile './agents/node-pod.yaml'
                 }
             }
             steps {
