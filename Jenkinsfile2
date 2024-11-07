@@ -2,17 +2,14 @@ pipeline {
   agent none
   stages {
     stage('Registry login') {
-      agent {
-        kubernetes {
-          yaml readFile('agents/buildah.yaml')
+      agent any
+      steps {
+        script {
+          def yamlContent = readFile('agents/buildah')
+          echo "YAML content: ${yamlContent}"
         }
       }
-        steps {
-          container('buildah') {
-            sh 'buildah login --help'
-          }
-        }
-      }
+       
     }
 }
 
