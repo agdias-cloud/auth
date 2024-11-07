@@ -10,7 +10,7 @@ pipeline {
                 kubernetes {
                     // Load Kubernetes pod YAML from an external file in the repository
                   label 'npm-pod'
-                  yaml readFile('./agents/node-pod.yaml')
+                  yaml readFileFromWorkspace('./agents/node-pod.yaml')
                 }
             }
             steps {
