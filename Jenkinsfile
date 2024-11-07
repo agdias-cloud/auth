@@ -1,20 +1,20 @@
 pipeline {
-    agent none
+    agent none  // No global agent is allocated
     stages {
         stage('Checkout') {
-          agent none
-          steps {
-            git credentialsId: 'github-pat',
-            url: 'https://github.com/agdias-cloud/auth.git'
-          }
+            agent { label 'checkout' }  // Allocate a node (e.g., a specific label or default agent)
+            steps {
+                git credentialsId: 'github-pat',
+                    url: 'https://github.com/agdias-cloud/auth.git'
+            }
         }
         stage('Run buildah') {
-          agent {
-            kubernetes {
-              label 'buildah-agent'
-              yamlFile 'agents/buildah.yaml'
+            agent {
+                kubernetes {
+                    label 'buildah-agent'
+                    yamlFile 'agents/buildah.yaml'
+                }
             }
-          }
             steps {
                 container('buildah') {
                     sh 'buildah login --help'
@@ -22,5 +22,4 @@ pipeline {
             }
         }
     }
-    
 }
